@@ -8,11 +8,11 @@ const cors = require( 'cors' )
 
 const app = express()
 
-// const corsOptions = {
-//   origin: 'https://dropboxclonebackend.herokuapp.com'
-// }
-// app.use( cors( corsOptions ) )
-app.use( cors() )
+const corsOptions = {
+  origin: 'https://dropboxclonebackend.herokuapp.com'
+}
+app.use( cors( corsOptions ) )
+
 
 const server = http.Server( app )
 const io = socket(server)
