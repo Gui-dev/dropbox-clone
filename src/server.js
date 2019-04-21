@@ -8,13 +8,6 @@ const cors = require( 'cors' )
 
 const app = express()
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-
 const server = http.Server( app )
 const io = socket(server)
 const port = process.env.PORT || 3333
@@ -30,6 +23,8 @@ io.on( 'connection', socket => {
 mongoose.connect( 'mongodb+srv://gui:gui@cluster0-cvlc0.mongodb.net/omnistack?retryWrites=true', 
     { useNewUrlParser: true } 
 )
+
+app.use( cors() )
 
 app.use( ( req, res, next ) => {
   req.io = io
