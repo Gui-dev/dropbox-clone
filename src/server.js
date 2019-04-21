@@ -4,10 +4,16 @@ const routes = require( './routes' )
 const path = require( 'path' )
 const socket = require( 'socket.io' )
 const http = require( 'http' )
-const cors = require( 'cors' )
+const cors = require( './config/cors' )
 
 const app = express()
+
+// const corsOptions = {
+//   origin: 'https://dropboxclonebackend.herokuapp.com'
+// }
+// app.use( cors( corsOptions ) )
 app.use( cors() )
+
 const server = http.Server( app )
 const io = socket(server)
 const port = process.env.PORT || 3333
