@@ -4,7 +4,7 @@ const routes = require( './routes' )
 const path = require( 'path' )
 const socket = require( 'socket.io' )
 const http = require( 'http' )
-const cors = require( './config/cors' )
+const cors = require( 'cors' )
 
 const app = express()
 
